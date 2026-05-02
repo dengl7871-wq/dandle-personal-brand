@@ -26,8 +26,9 @@ function ArrowIcon() {
 
 function BrandMark() {
   return (
-    <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl border border-white/18 bg-white/[0.08] shadow-soft backdrop-blur-xl">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(255,255,255,0.42),transparent_34%),linear-gradient(135deg,rgba(114,153,255,0.45),rgba(255,255,255,0.04)_52%,rgba(95,242,195,0.24))]" />
+    <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl border border-cyan-200/25 bg-cyan-200/[0.08] shadow-[0_0_34px_rgba(67,230,255,0.14)] backdrop-blur-xl">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(255,255,255,0.56),transparent_34%),linear-gradient(135deg,rgba(82,167,255,0.52),rgba(255,255,255,0.04)_52%,rgba(95,242,195,0.3))]" />
+      <div className="absolute inset-x-1 top-1 h-px bg-cyan-100/50" />
       <span className="relative text-sm font-semibold tracking-[0.02em] text-white">
         D
       </span>
@@ -45,7 +46,7 @@ function SectionTitle({
   return (
     <div className="mb-5 flex items-end justify-between gap-6">
       <div>
-        <p className="text-xs font-medium uppercase tracking-[0.22em] text-white/34">
+        <p className="text-xs font-medium uppercase tracking-[0.24em] text-cyan-100/46">
           {eyebrow}
         </p>
         <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-white sm:text-3xl">
@@ -58,11 +59,11 @@ function SectionTitle({
 
 function ProofPointView({ item }: { item: ProofPoint }) {
   return (
-    <div className="rounded-[22px] border border-white/[0.1] bg-white/[0.045] px-5 py-4 backdrop-blur-xl">
+    <div className="holo-card rounded-[22px] border border-cyan-100/[0.13] bg-white/[0.048] px-5 py-4 backdrop-blur-xl">
       <p className="text-lg font-semibold tracking-[-0.02em] text-white">
         {item.value}
       </p>
-      <p className="mt-1 text-xs leading-5 text-white/46">{item.label}</p>
+      <p className="mt-1 text-xs leading-5 text-cyan-50/48">{item.label}</p>
     </div>
   );
 }
@@ -77,14 +78,14 @@ function BentoCardView({ card }: { card: BentoCard }) {
 
   return (
     <article
-      className={`${spanClass} group relative min-h-[220px] overflow-hidden rounded-[28px] border border-white/[0.12] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.075]`}
+      className={`${spanClass} holo-card group relative min-h-[220px] overflow-hidden rounded-[28px] border border-cyan-100/[0.13] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5 hover:border-cyan-100/28 hover:bg-cyan-50/[0.07]`}
     >
-      <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/45 to-transparent opacity-70" />
-      <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-cyan-300/10 blur-3xl transition duration-300 group-hover:bg-cyan-200/16" />
+      <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-cyan-100/70 to-transparent opacity-70" />
+      <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-cyan-300/12 blur-3xl transition duration-300 group-hover:bg-cyan-200/18" />
       <div className="relative flex h-full flex-col justify-between gap-10">
         <div>
           {card.meta ? (
-            <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-white/38">
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-cyan-100/44">
               {card.meta}
             </p>
           ) : null}
@@ -102,8 +103,8 @@ function BentoCardView({ card }: { card: BentoCard }) {
 
 function ContentCard({ item }: { item: ContentBlock }) {
   return (
-    <article className="relative min-h-[220px] overflow-hidden rounded-[28px] border border-white/[0.12] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl">
-      <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+    <article className="holo-card relative min-h-[220px] overflow-hidden rounded-[28px] border border-cyan-100/[0.13] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl">
+      <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-cyan-100/50 to-transparent" />
       <h3 className="text-2xl font-semibold leading-tight tracking-[-0.03em] text-white">
         {item.title}
       </h3>
@@ -113,7 +114,7 @@ function ContentCard({ item }: { item: ContentBlock }) {
           {item.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] font-medium text-white/48"
+              className="rounded-full border border-cyan-100/15 bg-cyan-100/[0.045] px-3 py-1.5 text-[11px] font-medium text-cyan-50/52"
             >
               {tag}
             </span>
@@ -126,7 +127,7 @@ function ContentCard({ item }: { item: ContentBlock }) {
 
 function ValueCard({ item }: { item: ContentBlock }) {
   return (
-    <article className="rounded-[26px] border border-white/[0.1] bg-white/[0.045] p-6 backdrop-blur-2xl">
+    <article className="holo-card rounded-[26px] border border-cyan-100/[0.12] bg-white/[0.045] p-6 backdrop-blur-2xl">
       <h3 className="text-3xl font-semibold tracking-[-0.05em] text-white">
         {item.title}
       </h3>
@@ -137,11 +138,12 @@ function ValueCard({ item }: { item: ContentBlock }) {
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#05060a] text-white">
-      <div className="pointer-events-none absolute left-1/2 top-[-24rem] h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[120px]" />
-      <div className="pointer-events-none absolute right-[-16rem] top-[18rem] h-[34rem] w-[34rem] rounded-full bg-emerald-300/10 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-[-18rem] left-[-12rem] h-[32rem] w-[32rem] rounded-full bg-violet-400/10 blur-[120px]" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.07]" />
+    <main className="relative min-h-screen overflow-hidden bg-[#03050b] text-white">
+      <div className="pointer-events-none absolute left-1/2 top-[-24rem] h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-cyan-400/18 blur-[120px]" />
+      <div className="pointer-events-none absolute right-[-16rem] top-[18rem] h-[34rem] w-[34rem] rounded-full bg-emerald-300/12 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-[-18rem] left-[-12rem] h-[32rem] w-[32rem] rounded-full bg-violet-400/12 blur-[120px]" />
+      <div className="cyber-grid pointer-events-none absolute inset-0" />
+      <div className="scanline pointer-events-none absolute left-0 right-0 top-36 h-px" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0,rgba(5,6,10,0.22)_58%,rgba(5,6,10,0.88)_100%)]" />
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-5 py-5 sm:px-8 lg:px-10">
@@ -155,7 +157,7 @@ export default function Home() {
           </a>
           <a
             href={site.secondaryAction.href}
-            className="rounded-full border border-white/14 bg-white/[0.05] px-4 py-2 text-sm font-medium text-white/82 backdrop-blur-xl transition hover:border-white/28 hover:bg-white/[0.09] hover:text-white"
+            className="rounded-full border border-cyan-100/22 bg-cyan-100/[0.045] px-4 py-2 text-sm font-medium text-cyan-50/82 shadow-[0_0_24px_rgba(34,211,238,0.08)] backdrop-blur-xl transition hover:border-cyan-100/36 hover:bg-cyan-100/[0.08] hover:text-white"
           >
             {site.secondaryAction.label}
           </a>
@@ -163,23 +165,23 @@ export default function Home() {
 
         <section className="grid flex-1 items-center gap-12 py-14 sm:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10 lg:py-10">
           <div className="max-w-4xl">
-            <p className="mb-5 text-sm font-medium uppercase tracking-[0.22em] text-white/38">
+            <p className="mb-5 text-sm font-medium uppercase tracking-[0.24em] text-cyan-100/58">
               {site.role}
             </p>
             <div className="mb-7 flex flex-wrap gap-2.5">
               {site.signal.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/12 bg-white/[0.04] px-3.5 py-2 text-xs font-medium text-white/62 backdrop-blur-xl"
+                  className="rounded-full border border-cyan-100/18 bg-cyan-100/[0.045] px-3.5 py-2 text-xs font-medium text-cyan-50/68 backdrop-blur-xl"
                 >
                   {item}
                 </span>
               ))}
             </div>
-            <p className="mb-4 text-base font-medium text-white/68">
+            <p className="mb-4 text-base font-medium text-cyan-50/68">
               {site.legalName} / {site.location}
             </p>
-            <h1 className="max-w-5xl text-[clamp(3rem,12vw,5rem)] font-semibold leading-[1.14] tracking-[-0.025em] text-white sm:text-[clamp(4.6rem,8.7vw,6.5rem)] sm:leading-[1.08] lg:text-[clamp(4.9rem,6vw,6.7rem)] lg:leading-[1.04]">
+            <h1 className="max-w-5xl bg-gradient-to-br from-white via-cyan-50 to-cyan-200 bg-clip-text text-[clamp(3rem,12vw,5rem)] font-semibold leading-[1.14] tracking-[-0.025em] text-transparent drop-shadow-[0_0_28px_rgba(125,245,255,0.12)] sm:text-[clamp(4.6rem,8.7vw,6.5rem)] sm:leading-[1.08] lg:text-[clamp(4.9rem,6vw,6.7rem)] lg:leading-[1.04]">
               {site.headline.split("\n").map((line) => (
                 <span key={line} className="block whitespace-nowrap">
                   {line}
@@ -192,14 +194,14 @@ export default function Home() {
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a
                 href={site.primaryAction.href}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-white/88"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-white via-cyan-50 to-cyan-100 px-5 py-3 text-sm font-semibold text-black shadow-[0_0_34px_rgba(125,245,255,0.18)] transition hover:from-cyan-50 hover:to-white"
               >
                 {site.primaryAction.label}
                 <ArrowIcon />
               </a>
               <a
                 href={site.secondaryAction.href}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/14 bg-white/[0.045] px-5 py-3 text-sm font-semibold text-white/82 backdrop-blur-xl transition hover:border-white/28 hover:bg-white/[0.08] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-100/18 bg-cyan-100/[0.045] px-5 py-3 text-sm font-semibold text-cyan-50/82 backdrop-blur-xl transition hover:border-cyan-100/34 hover:bg-cyan-100/[0.08] hover:text-white"
               >
                 {site.secondaryAction.label}
                 <ArrowIcon />
@@ -213,12 +215,12 @@ export default function Home() {
           </div>
 
           <aside className="relative mx-auto w-full max-w-[520px] lg:mr-0">
-            <div className="absolute -inset-6 rounded-[40px] bg-gradient-to-br from-white/14 via-blue-400/10 to-emerald-300/10 blur-3xl" />
-            <div className="relative overflow-hidden rounded-[34px] border border-white/[0.14] bg-white/[0.065] p-3 shadow-soft backdrop-blur-2xl sm:p-5">
-              <div className="aspect-[4/5] overflow-hidden rounded-[26px] border border-white/[0.1] bg-[#080a10] p-5 sm:p-6">
-                <div className="pointer-events-none absolute inset-5 rounded-[26px] bg-[radial-gradient(circle_at_42%_28%,rgba(95,242,195,0.18),transparent_30%),radial-gradient(circle_at_70%_65%,rgba(114,153,255,0.18),transparent_34%)]" />
+            <div className="absolute -inset-6 rounded-[40px] bg-gradient-to-br from-cyan-200/18 via-blue-400/12 to-emerald-300/12 blur-3xl" />
+            <div className="holo-card relative overflow-hidden rounded-[34px] border border-cyan-100/[0.16] bg-cyan-100/[0.055] p-3 shadow-soft backdrop-blur-2xl sm:p-5">
+              <div className="corner-frame aspect-[4/5] overflow-hidden rounded-[26px] border border-cyan-100/[0.12] bg-[#070b12] p-5 sm:p-6">
+                <div className="pointer-events-none absolute inset-5 rounded-[26px] bg-[radial-gradient(circle_at_42%_28%,rgba(95,242,195,0.22),transparent_30%),radial-gradient(circle_at_70%_65%,rgba(114,153,255,0.22),transparent_34%)]" />
                 <div className="relative flex h-full flex-col justify-between">
-                  <div className="flex items-center justify-between text-xs text-white/42">
+                  <div className="flex items-center justify-between text-xs text-cyan-50/50">
                     <span>PERSONAL SIGNAL</span>
                     <span>2026</span>
                   </div>
@@ -248,7 +250,7 @@ export default function Home() {
                     {site.signal.map((item) => (
                       <span
                         key={item}
-                        className="rounded-2xl border border-white/10 bg-white/[0.045] px-2 py-3"
+                        className="rounded-2xl border border-cyan-100/12 bg-cyan-100/[0.045] px-2 py-3"
                       >
                         {item}
                       </span>
@@ -263,8 +265,8 @@ export default function Home() {
         <section className="pb-8 pt-2">
           <SectionTitle eyebrow="About" title="一句话背景" />
           <div className="grid gap-4 lg:grid-cols-[1.35fr_0.65fr]">
-            <article className="relative overflow-hidden rounded-[30px] border border-white/[0.12] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl sm:p-8">
-              <div className="absolute right-0 top-0 h-44 w-44 rounded-full bg-blue-300/10 blur-3xl" />
+            <article className="holo-card relative overflow-hidden rounded-[30px] border border-cyan-100/[0.13] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl sm:p-8">
+              <div className="absolute right-0 top-0 h-44 w-44 rounded-full bg-cyan-300/12 blur-3xl" />
               <p className="relative max-w-3xl text-xl font-medium leading-9 tracking-[-0.025em] text-white/84 sm:text-2xl sm:leading-10">
                 {site.about}
               </p>
@@ -272,15 +274,15 @@ export default function Home() {
                 {site.aboutTags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-white/12 bg-black/20 px-3.5 py-2 text-xs font-medium text-white/58"
+                    className="rounded-full border border-cyan-100/16 bg-cyan-100/[0.04] px-3.5 py-2 text-xs font-medium text-cyan-50/58"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
             </article>
-            <article className="rounded-[30px] border border-white/[0.12] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl sm:p-8">
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/34">
+            <article className="holo-card rounded-[30px] border border-cyan-100/[0.13] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl sm:p-8">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-100/42">
                 For
               </p>
               <p className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">
@@ -340,7 +342,7 @@ export default function Home() {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="group flex min-h-24 items-center justify-between rounded-[22px] border border-white/[0.08] bg-black/20 px-5 py-4 transition hover:border-white/20 hover:bg-white/[0.06]"
+                  className="group flex min-h-24 items-center justify-between rounded-[22px] border border-cyan-100/[0.1] bg-black/20 px-5 py-4 transition hover:border-cyan-100/24 hover:bg-cyan-100/[0.055]"
                 >
                   <span>
                     <span className="block text-sm font-medium text-white">
@@ -364,7 +366,7 @@ export default function Home() {
             </p>
             <a
               href={site.secondaryAction.href}
-              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-white/88 sm:w-auto"
+              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-white via-cyan-50 to-cyan-100 px-5 py-3 text-sm font-semibold text-black shadow-[0_0_34px_rgba(125,245,255,0.16)] transition hover:from-cyan-50 hover:to-white sm:w-auto"
             >
               {site.socials.find((item) => item.label === "Email")?.handle}
               <ArrowIcon />
