@@ -31,10 +31,15 @@ export const site = {
   location: "长沙 / 悉尼",
   headline: "把 AI 带进\n中学理科课堂",
   intro:
-    "UNSW（QS Top 20）工程硕士背景，聚焦 AI 实用落地、双语物理与 STEM 项目式学习。擅长把 CNN/YOLO、IoT 传感器、力学建模与真实工程案例，转化为中学生听得懂、做得出、讲得清的课堂体验。",
+    "UNSW（QS Top 20）工程硕士背景，聚焦 AI 实用落地、双语物理与 STEM 项目式学习。兼具客户经理与销售沟通经验，能把技术、课程产品与教育理念讲清楚、卖明白、落到课堂里。",
   about:
-    "我不是只会讲概念的理科老师，而是能把工程研究、AI 技术和双语表达整合成课堂产品的人。",
-  aboutTags: ["UNSW 工程硕士", "AI+STEM 课程研发", "双语物理表达"],
+    "我不是只会讲概念的理科老师，而是能把工程研究、AI 技术、产品架构与学生沟通整合成课堂产品的人。",
+  aboutTags: [
+    "UNSW 工程硕士",
+    "AI+STEM 课程研发",
+    "课程产品沟通",
+    "青少年个性化陪伴"
+  ],
   audience: "学校招聘方",
   primaryAction: {
     label: "关注我的更新",
@@ -55,12 +60,12 @@ export const site = {
       label: "智能安全风险研究经历"
     },
     {
-      value: "Bilingual",
-      label: "中英理科术语转译能力"
+      value: "Product",
+      label: "课程产品拆解与转化能力"
     },
     {
-      value: "Coordination",
-      label: "项目协同与沟通经验"
+      value: "Empathy",
+      label: "青少年沟通与长期陪伴经验"
     }
   ] satisfies ProofPoint[],
   socials: [
@@ -89,6 +94,13 @@ export const site = {
       variant: "wide"
     },
     {
+      title: "课程产品转化",
+      description:
+        "有客户经理与销售沟通经历，能深度参与课程产品研发、卖点梳理、理念讲解与家校沟通，把复杂方案讲成可被理解和选择的价值。",
+      meta: "Product / Sales",
+      variant: "normal"
+    },
+    {
       title: "工程底层逻辑",
       description:
         "土木工程与力学背景，让物理公式不止停留在纸面，而是连接桥梁、城市与真实世界。",
@@ -105,7 +117,7 @@ export const site = {
     {
       title: "课程研发视角",
       description:
-        "能从学校课程目标出发，把 AI、物理、数学建模与真实案例组合成可展示、可复用的 STEM 课程原型。",
+        "能从学校课程目标出发，剖析产品架构、优势短板与课堂转化路径，把 AI、物理、数学建模组合成可展示、可复用的 STEM 课程原型。",
       meta: "Curriculum Design",
       variant: "normal"
     }
@@ -125,6 +137,11 @@ export const site = {
       title: "用双语表达连接国际课堂",
       description:
         "把英文理科术语、工程表达和中文理解路径打通，帮助学生建立面向国际课程与未来学术表达的语言基础。"
+    },
+    {
+      title: "用个性沟通建立学习信任",
+      description:
+        "长期关注青少年情绪支持与心理陪伴，善于依据孩子性格差异调整沟通方式，先建立安全感，再找到学习突破口。"
     }
   ] satisfies ContentBlock[],
   signatureLessons: [
@@ -141,10 +158,16 @@ export const site = {
       tags: ["Physics", "Regression", "Critical Thinking"]
     },
     {
-      title: "Python 入门到 AI 思维",
+      title: "AI 工具到建模思维",
       description:
-        "从变量、函数和条件判断开始，逐步过渡到数据处理、简单分类与模型评估，降低学生进入 AI 的门槛。",
-      tags: ["Python", "Data", "AI Basics"]
+        "从 AI 工具使用、数据处理和问题拆解开始，逐步过渡到简单分类、模型评估与真实场景应用。",
+      tags: ["AI Tools", "Data", "Model Thinking"]
+    },
+    {
+      title: "课程产品拆解工作坊",
+      description:
+        "把一个 AI+理科课程从用户需求、核心卖点、学习路径、展示成果到家长沟通话术完整拆开，训练学生和团队的产品思维。",
+      tags: ["Product Thinking", "Communication", "AI Education"]
     }
   ] satisfies ContentBlock[],
   schoolValue: [
@@ -161,12 +184,22 @@ export const site = {
     {
       title: "能沟通",
       description:
-        "有政府、施工方、设计院多方协调经验，可迁移到家校沟通与跨学科教研协作。"
+        "做过销售和客户经理，懂需求识别、信任建立、理念讲解与异议处理，可迁移到家校沟通、招生咨询与课程说明。"
     },
     {
       title: "能组织",
       description:
         "曾任院学生会学术部部长，具备活动策划、课堂管理和学生组织能力。"
+    },
+    {
+      title: "能剖析",
+      description:
+        "擅长深层拆解产品架构、优势短板与落地路径，能参与课程产品研发、销售材料打磨和教学方案迭代。"
+    },
+    {
+      title: "能陪伴",
+      description:
+        "有传统文化内容副业和青少年沟通经验，擅长倾听、心理开导与长期陪伴，能根据不同性格做点对点引导。"
     }
   ] satisfies ContentBlock[]
 };
