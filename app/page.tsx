@@ -179,7 +179,7 @@ export default function Home() {
             <p className="mb-4 text-base font-medium text-white/68">
               {site.legalName} / {site.location}
             </p>
-            <h1 className="max-w-5xl text-[clamp(3.35rem,14.5vw,5.8rem)] font-semibold leading-[1.04] tracking-[-0.055em] text-white sm:text-[clamp(5.2rem,10vw,7.6rem)] sm:leading-[0.96] lg:text-[clamp(5.5rem,7vw,7.7rem)] lg:leading-[0.9]">
+            <h1 className="max-w-5xl text-[clamp(3rem,12vw,5rem)] font-semibold leading-[1.14] tracking-[-0.025em] text-white sm:text-[clamp(4.6rem,8.7vw,6.5rem)] sm:leading-[1.08] lg:text-[clamp(4.9rem,6vw,6.7rem)] lg:leading-[1.04]">
               {site.headline.split("\n").map((line) => (
                 <span key={line} className="block whitespace-nowrap">
                   {line}
