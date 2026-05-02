@@ -31,7 +31,7 @@ export const site = {
   location: "长沙 / 悉尼",
   headline: "把 AI 带进\n中学理科课堂",
   intro:
-    "UNSW（QS Top 20）工程硕士背景，聚焦 AI 编程入门、双语物理与 STEM 项目式学习。擅长把 CNN/YOLO、IoT 传感器、力学建模与真实工程案例，转化为中学生听得懂、做得出、讲得清的课堂体验。",
+    "UNSW（QS Top 20）工程硕士背景，聚焦 AI 实用落地、双语物理与 STEM 项目式学习。擅长把 CNN/YOLO、IoT 传感器、力学建模与真实工程案例，转化为中学生听得懂、做得出、讲得清的课堂体验。",
   about:
     "我不是只会讲概念的理科老师，而是能把工程研究、AI 技术和双语表达整合成课堂产品的人。",
   aboutTags: ["UNSW 工程硕士", "AI+STEM 课程研发", "双语物理表达"],
@@ -44,7 +44,7 @@ export const site = {
     label: "联系合作",
     href: "mailto:1367879380@qq.com"
   },
-  signal: ["AI 编程入门", "双语物理", "STEM 项目式学习"],
+  signal: ["AI 实用落地", "双语物理", "STEM 项目式学习"],
   proof: [
     {
       value: "UNSW",
@@ -82,10 +82,10 @@ export const site = {
   ] satisfies SocialLink[],
   bento: [
     {
-      title: "AI 编程启发",
+      title: "AI 实用落地",
       description:
-        "从变量、条件、数据到简单模型，把 AI 编程入门变成中学生能跟上的探究式学习。",
-      meta: "Python / AI Basics",
+        "从真实问题、数据采集到模型判断，把 AI 从抽象概念转化为中学生能理解、能操作、能展示的解决方案。",
+      meta: "AI Application",
       variant: "wide"
     },
     {
