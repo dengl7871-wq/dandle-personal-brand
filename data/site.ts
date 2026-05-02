@@ -76,7 +76,7 @@ export const site = {
     },
     {
       label: "公众号",
-      handle: "炳烛室",
+      handle: "烛",
       href: "#"
     },
     {
