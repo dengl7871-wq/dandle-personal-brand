@@ -5,6 +5,27 @@ import {
   type ProofPoint
 } from "@/data/site";
 
+const cardTones = [
+  "tone-cyan",
+  "tone-blue",
+  "tone-violet",
+  "tone-mint",
+  "tone-slate",
+  "tone-gold"
+];
+
+function cardTone(index: number) {
+  return cardTones[index % cardTones.length];
+}
+
+function CardIndex({ index }: { index: number }) {
+  return (
+    <span className="rounded-full border border-white/10 bg-white/[0.045] px-2.5 py-1 text-[10px] font-semibold tracking-[0.14em] text-cyan-50/48">
+      {String(index + 1).padStart(2, "0")}
+    </span>
+  );
+}
+
 function ArrowIcon() {
   return (
     <svg
@@ -57,9 +78,9 @@ function SectionTitle({
   );
 }
 
-function ProofPointView({ item }: { item: ProofPoint }) {
+function ProofPointView({ item, index }: { item: ProofPoint; index: number }) {
   return (
-    <div className="holo-card rounded-[22px] border border-cyan-100/[0.13] bg-white/[0.048] px-5 py-4 backdrop-blur-xl">
+    <div className={`holo-card gradient-card ${cardTone(index)} rounded-[22px] border border-cyan-100/[0.13] px-5 py-4 backdrop-blur-xl`}>
       <p className="text-lg font-semibold tracking-[-0.02em] text-white">
         {item.value}
       </p>
@@ -68,20 +89,23 @@ function ProofPointView({ item }: { item: ProofPoint }) {
   );
 }
 
-function BentoCardView({ card }: { card: BentoCard }) {
+function BentoCardView({ card, index }: { card: BentoCard; index: number }) {
   return (
     <article
-      className="holo-card group relative min-h-[240px] overflow-hidden rounded-[28px] border border-cyan-100/[0.13] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5 hover:border-cyan-100/28 hover:bg-cyan-50/[0.07]"
+      className={`holo-card gradient-card ${cardTone(index)} group relative min-h-[240px] overflow-hidden rounded-[28px] border border-cyan-100/[0.13] p-6 shadow-soft backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5`}
     >
       <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-cyan-100/70 to-transparent opacity-70" />
       <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-cyan-300/12 blur-3xl transition duration-300 group-hover:bg-cyan-200/18" />
       <div className="relative flex h-full flex-col gap-5">
         <div>
-          {card.meta ? (
-            <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-cyan-100/44">
-              {card.meta}
-            </p>
-          ) : null}
+          <div className="mb-4 flex items-center justify-between gap-4">
+            {card.meta ? (
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-cyan-100/48">
+                {card.meta}
+              </p>
+            ) : null}
+            <CardIndex index={index} />
+          </div>
           <h2 className="text-[1.55rem] font-semibold leading-tight tracking-[-0.025em] text-white">
             {card.title}
           </h2>
@@ -94,10 +118,13 @@ function BentoCardView({ card }: { card: BentoCard }) {
   );
 }
 
-function ContentCard({ item }: { item: ContentBlock }) {
+function ContentCard({ item, index }: { item: ContentBlock; index: number }) {
   return (
-    <article className="holo-card relative min-h-[220px] overflow-hidden rounded-[28px] border border-cyan-100/[0.13] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl">
+    <article className={`holo-card gradient-card ${cardTone(index)} relative min-h-[220px] overflow-hidden rounded-[28px] border border-cyan-100/[0.13] p-6 shadow-soft backdrop-blur-2xl`}>
       <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-cyan-100/50 to-transparent" />
+      <div className="mb-5 flex justify-end">
+        <CardIndex index={index} />
+      </div>
       <h3 className="text-2xl font-semibold leading-tight tracking-[-0.03em] text-white">
         {item.title}
       </h3>
@@ -118,9 +145,12 @@ function ContentCard({ item }: { item: ContentBlock }) {
   );
 }
 
-function ValueCard({ item }: { item: ContentBlock }) {
+function ValueCard({ item, index }: { item: ContentBlock; index: number }) {
   return (
-    <article className="holo-card rounded-[26px] border border-cyan-100/[0.12] bg-white/[0.045] p-6 backdrop-blur-2xl">
+    <article className={`holo-card gradient-card ${cardTone(index + 2)} rounded-[26px] border border-cyan-100/[0.12] p-6 backdrop-blur-2xl`}>
+      <div className="mb-5 flex justify-end">
+        <CardIndex index={index} />
+      </div>
       <h3 className="text-3xl font-semibold tracking-[-0.05em] text-white">
         {item.title}
       </h3>
@@ -201,8 +231,8 @@ export default function Home() {
               </a>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
-              {site.proof.map((item) => (
-                <ProofPointView key={item.value} item={item} />
+              {site.proof.map((item, index) => (
+                <ProofPointView key={item.value} item={item} index={index} />
               ))}
             </div>
           </div>
@@ -262,7 +292,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-4 lg:grid-cols-[1.35fr_0.65fr]">
-            <article className="holo-card relative overflow-hidden rounded-[30px] border border-cyan-100/[0.13] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl sm:p-8">
+            <article className="holo-card gradient-card tone-mint relative overflow-hidden rounded-[30px] border border-cyan-100/[0.13] p-6 shadow-soft backdrop-blur-2xl sm:p-8">
               <div className="absolute right-0 top-0 h-44 w-44 rounded-full bg-cyan-300/12 blur-3xl" />
               <p className="relative max-w-4xl text-lg font-medium leading-8 tracking-[-0.018em] text-white/84 sm:text-[1.55rem] sm:leading-10">
                 {site.about}
@@ -278,7 +308,7 @@ export default function Home() {
                 ))}
               </div>
             </article>
-            <article className="holo-card rounded-[30px] border border-cyan-100/[0.13] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl sm:p-8">
+            <article className="holo-card gradient-card tone-slate rounded-[30px] border border-cyan-100/[0.13] p-6 shadow-soft backdrop-blur-2xl sm:p-8">
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-100/42">
                 For
               </p>
@@ -295,8 +325,8 @@ export default function Home() {
         <section className="pb-10 pt-2">
           <SectionTitle eyebrow="Teaching Philosophy" title="教学理念" />
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {site.teachingPhilosophy.map((item) => (
-              <ContentCard key={item.title} item={item} />
+            {site.teachingPhilosophy.map((item, index) => (
+              <ContentCard key={item.title} item={item} index={index} />
             ))}
           </div>
         </section>
@@ -304,8 +334,8 @@ export default function Home() {
         <section className="pb-10 pt-2">
           <SectionTitle eyebrow="Signature Lessons" title="代表性课堂主题" />
           <div className="grid gap-4 md:grid-cols-3">
-            {site.signatureLessons.map((item) => (
-              <ContentCard key={item.title} item={item} />
+            {site.signatureLessons.map((item, index) => (
+              <ContentCard key={item.title} item={item} index={index} />
             ))}
           </div>
         </section>
@@ -313,8 +343,8 @@ export default function Home() {
         <section className="pb-10 pt-2">
           <SectionTitle eyebrow="Why Schools" title="学校为什么需要我" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {site.schoolValue.map((item) => (
-              <ValueCard key={item.title} item={item} />
+            {site.schoolValue.map((item, index) => (
+              <ValueCard key={item.title} item={item} index={index} />
             ))}
           </div>
         </section>
@@ -322,8 +352,8 @@ export default function Home() {
         <section className="pb-10 pt-2">
           <SectionTitle eyebrow="Focus" title="内容方向" />
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-            {site.bento.map((card) => (
-              <BentoCardView key={card.title} card={card} />
+            {site.bento.map((card, index) => (
+              <BentoCardView key={card.title} card={card} index={index} />
             ))}
           </div>
         </section>
@@ -332,7 +362,7 @@ export default function Home() {
           id="follow"
           className="mb-5 mt-2 grid gap-4 lg:grid-cols-[1fr_0.86fr]"
         >
-          <div className="rounded-[30px] border border-white/[0.12] bg-white/[0.055] p-3 backdrop-blur-2xl sm:p-4">
+          <div className="holo-card gradient-card tone-blue rounded-[30px] border border-white/[0.12] p-3 backdrop-blur-2xl sm:p-4">
             <SectionTitle eyebrow="Follow" title="关注入口" />
             <div className="grid gap-3 md:grid-cols-3">
               {site.socials.map((social) => (
@@ -356,7 +386,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="rounded-[30px] border border-white/[0.12] bg-white/[0.055] p-6 backdrop-blur-2xl sm:p-8">
+          <div className="holo-card gradient-card tone-violet rounded-[30px] border border-white/[0.12] p-6 backdrop-blur-2xl sm:p-8">
             <SectionTitle eyebrow="Contact" title="合作 / 招聘联系" />
             <p className="max-w-md text-sm leading-7 text-white/58">
               面向学校招聘、双语理科教学、AI+课程共创与 STEM 课程研发合作。希望把 AI 编程带进中学理科课堂，欢迎联系。
