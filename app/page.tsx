@@ -69,20 +69,13 @@ function ProofPointView({ item }: { item: ProofPoint }) {
 }
 
 function BentoCardView({ card }: { card: BentoCard }) {
-  const spanClass =
-    card.variant === "wide"
-      ? "md:col-span-2"
-      : card.variant === "tall"
-        ? "md:row-span-2"
-        : "";
-
   return (
     <article
-      className={`${spanClass} holo-card group relative min-h-[220px] overflow-hidden rounded-[28px] border border-cyan-100/[0.13] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5 hover:border-cyan-100/28 hover:bg-cyan-50/[0.07]`}
+      className="holo-card group relative min-h-[240px] overflow-hidden rounded-[28px] border border-cyan-100/[0.13] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5 hover:border-cyan-100/28 hover:bg-cyan-50/[0.07]"
     >
       <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-cyan-100/70 to-transparent opacity-70" />
       <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-cyan-300/12 blur-3xl transition duration-300 group-hover:bg-cyan-200/18" />
-      <div className="relative flex h-full flex-col justify-between gap-10">
+      <div className="relative flex h-full flex-col gap-5">
         <div>
           {card.meta ? (
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-cyan-100/44">
@@ -93,7 +86,7 @@ function BentoCardView({ card }: { card: BentoCard }) {
             {card.title}
           </h2>
         </div>
-        <p className="max-w-xl text-sm leading-7 text-white/58 md:text-[15px]">
+        <p className="max-w-xl text-sm leading-7 text-white/62 md:text-[15px]">
           {card.description}
         </p>
       </div>
@@ -263,11 +256,15 @@ export default function Home() {
         </section>
 
         <section className="pb-8 pt-2">
-          <SectionTitle eyebrow="About" title="一句话背景" />
+          <div className="mb-5">
+            <p className="text-xs font-medium uppercase tracking-[0.24em] text-cyan-100/46">
+              About
+            </p>
+          </div>
           <div className="grid gap-4 lg:grid-cols-[1.35fr_0.65fr]">
             <article className="holo-card relative overflow-hidden rounded-[30px] border border-cyan-100/[0.13] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl sm:p-8">
               <div className="absolute right-0 top-0 h-44 w-44 rounded-full bg-cyan-300/12 blur-3xl" />
-              <p className="relative max-w-3xl text-xl font-medium leading-9 tracking-[-0.025em] text-white/84 sm:text-2xl sm:leading-10">
+              <p className="relative max-w-4xl text-lg font-medium leading-8 tracking-[-0.018em] text-white/84 sm:text-[1.55rem] sm:leading-10">
                 {site.about}
               </p>
               <div className="relative mt-8 flex flex-wrap gap-2.5">
@@ -297,7 +294,7 @@ export default function Home() {
 
         <section className="pb-10 pt-2">
           <SectionTitle eyebrow="Teaching Philosophy" title="教学理念" />
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {site.teachingPhilosophy.map((item) => (
               <ContentCard key={item.title} item={item} />
             ))}
@@ -324,7 +321,7 @@ export default function Home() {
 
         <section className="pb-10 pt-2">
           <SectionTitle eyebrow="Focus" title="内容方向" />
-          <div className="grid auto-rows-fr gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {site.bento.map((card) => (
               <BentoCardView key={card.title} card={card} />
             ))}
