@@ -25,7 +25,7 @@ export type ContentBlock = {
 export const site = {
   name: "Dandle",
   legalName: "邓达凌",
-  portrait: "/portrait.jpg",
+  portrait: "/f19218fe-0b76-4a98-9790-8f03a9088269.png",
   role: "AI+理科双语教育者 / STEM课程研发者",
   secondaryRole: "新世代 AI 理科教育开拓者",
   location: "长沙 / 悉尼",

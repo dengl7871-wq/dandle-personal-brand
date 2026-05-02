@@ -222,9 +222,9 @@ export default function Home() {
                       <img
                         src={site.portrait}
                         alt={`${site.legalName} portrait`}
-                        className="h-full w-full object-cover contrast-[1.04] saturate-[1.08]"
+                        className="h-full w-full scale-[1.16] object-cover object-[center_34%] brightness-[1.16] contrast-[1.06] saturate-[1.08]"
                       />
-                      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.02)_0%,transparent_48%,rgba(5,6,10,0.52)_100%)]" />
+                      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.02)_0%,transparent_58%,rgba(5,6,10,0.28)_100%)]" />
                       <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
                     </div>
                     <div>
