@@ -11,19 +11,30 @@ export type BentoCard = {
   variant: "wide" | "tall" | "normal";
 };
 
+export type ProofPoint = {
+  value: string;
+  label: string;
+};
+
+export type ContentBlock = {
+  title: string;
+  description: string;
+  tags?: string[];
+};
+
 export const site = {
   name: "Dandle",
   legalName: "邓达凌",
   portrait: "/portrait.jpg",
-  role: "面向中学生的 AI+理科双语教育者",
-  secondaryRole: "新世代 AI 命理开拓者",
+  role: "AI+理科双语教育者 / STEM课程研发者",
+  secondaryRole: "新世代 AI 理科教育开拓者",
   location: "长沙 / 悉尼",
-  headline: "用 AI 编程\n重塑理科课堂",
+  headline: "把 AI 带进\n中学理科课堂",
   intro:
-    "UNSW 土木工程硕士，专注 AI 编程入门与双语物理教学。用工程思维拆解复杂问题，为学校招聘方呈现可落地的 AI+理科课堂能力。",
+    "UNSW（QS Top 20）工程硕士背景，聚焦 AI 编程入门、双语物理与 STEM 项目式学习。擅长把 CNN/YOLO、IoT 传感器、力学建模与真实工程案例，转化为中学生听得懂、做得出、讲得清的课堂体验。",
   about:
-    "我把工程、AI 与双语理科表达结合起来，帮助中学生用更真实的方式理解物理、数学与人工智能。",
-  aboutTags: ["UNSW 工程硕士", "双语物理", "AI 编程入门"],
+    "我不是只会讲概念的理科老师，而是能把工程研究、AI 技术和双语表达整合成课堂产品的人。",
+  aboutTags: ["UNSW 工程硕士", "AI+STEM 课程研发", "双语物理表达"],
   audience: "学校招聘方",
   primaryAction: {
     label: "关注我的更新",
@@ -33,7 +44,25 @@ export const site = {
     label: "联系合作",
     href: "mailto:1367879380@qq.com"
   },
-  signal: ["AI 编程入门", "双语物理", "AI+理科课堂"],
+  signal: ["AI 编程入门", "双语物理", "STEM 项目式学习"],
+  proof: [
+    {
+      value: "UNSW",
+      label: "QS Top 20 工程硕士背景"
+    },
+    {
+      value: "AI x IoT",
+      label: "智能安全风险研究经历"
+    },
+    {
+      value: "Bilingual",
+      label: "中英理科术语转译能力"
+    },
+    {
+      value: "Coordination",
+      label: "项目协同与沟通经验"
+    }
+  ] satisfies ProofPoint[],
   socials: [
     {
       label: "小红书",
@@ -74,11 +103,70 @@ export const site = {
       variant: "tall"
     },
     {
-      title: "创作者主页",
+      title: "课程研发视角",
       description:
-        "这里不会堆作品集，只保留最重要的信息：我是谁、我做什么、在哪里持续输出。",
-      meta: "Minimal by design",
+        "能从学校课程目标出发，把 AI、物理、数学建模与真实案例组合成可展示、可复用的 STEM 课程原型。",
+      meta: "Curriculum Design",
       variant: "normal"
     }
-  ] satisfies BentoCard[]
+  ] satisfies BentoCard[],
+  teachingPhilosophy: [
+    {
+      title: "用真实问题点燃抽象公式",
+      description:
+        "用桥梁、海岸、城市安全等真实工程场景切入，让伯努利方程、线性回归、受力分析不再停留在黑板上。"
+    },
+    {
+      title: "用 AI 编程训练建模思维",
+      description:
+        "让学生从数据采集、特征识别到模型决策，理解 AI 不是魔法，而是一套可被拆解、验证、迭代的逻辑系统。"
+    },
+    {
+      title: "用双语表达连接国际课堂",
+      description:
+        "把英文理科术语、工程表达和中文理解路径打通，帮助学生建立面向国际课程与未来学术表达的语言基础。"
+    }
+  ] satisfies ContentBlock[],
+  signatureLessons: [
+    {
+      title: "AI 安全风险侦测实验",
+      description:
+        "以施工安全监测为案例，引导学生理解传感器数据、计算机视觉识别与 AI 决策闭环。",
+      tags: ["IoT", "CNN / YOLO", "Risk Sensing"]
+    },
+    {
+      title: "从海岸泳池学力学与回归",
+      description:
+        "用 Bondi Icebergs 海岸灾害评估案例，把波浪载荷、岸线退缩与线性回归转化为探究课题。",
+      tags: ["Physics", "Regression", "Critical Thinking"]
+    },
+    {
+      title: "Python 入门到 AI 思维",
+      description:
+        "从变量、函数和条件判断开始，逐步过渡到数据处理、简单分类与模型评估，降低学生进入 AI 的门槛。",
+      tags: ["Python", "Data", "AI Basics"]
+    }
+  ] satisfies ContentBlock[],
+  schoolValue: [
+    {
+      title: "能讲",
+      description:
+        "具备双语理科表达能力，能把复杂概念讲得清楚、有结构、有课堂节奏。"
+    },
+    {
+      title: "能研",
+      description:
+        "有 AI+工程研究经历，能参与 STEM、AI 校本课程和探究式项目研发。"
+    },
+    {
+      title: "能沟通",
+      description:
+        "有政府、施工方、设计院多方协调经验，可迁移到家校沟通与跨学科教研协作。"
+    },
+    {
+      title: "能组织",
+      description:
+        "曾任院学生会学术部部长，具备活动策划、课堂管理和学生组织能力。"
+    }
+  ] satisfies ContentBlock[]
 };

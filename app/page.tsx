@@ -1,4 +1,9 @@
-import { site, type BentoCard } from "@/data/site";
+import {
+  site,
+  type BentoCard,
+  type ContentBlock,
+  type ProofPoint
+} from "@/data/site";
 
 function ArrowIcon() {
   return (
@@ -26,6 +31,38 @@ function BrandMark() {
       <span className="relative text-sm font-semibold tracking-[0.02em] text-white">
         D
       </span>
+    </div>
+  );
+}
+
+function SectionTitle({
+  eyebrow,
+  title
+}: {
+  eyebrow: string;
+  title: string;
+}) {
+  return (
+    <div className="mb-5 flex items-end justify-between gap-6">
+      <div>
+        <p className="text-xs font-medium uppercase tracking-[0.22em] text-white/34">
+          {eyebrow}
+        </p>
+        <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-white sm:text-3xl">
+          {title}
+        </h2>
+      </div>
+    </div>
+  );
+}
+
+function ProofPointView({ item }: { item: ProofPoint }) {
+  return (
+    <div className="rounded-[22px] border border-white/[0.1] bg-white/[0.045] px-5 py-4 backdrop-blur-xl">
+      <p className="text-lg font-semibold tracking-[-0.02em] text-white">
+        {item.value}
+      </p>
+      <p className="mt-1 text-xs leading-5 text-white/46">{item.label}</p>
     </div>
   );
 }
@@ -63,24 +100,38 @@ function BentoCardView({ card }: { card: BentoCard }) {
   );
 }
 
-function SectionTitle({
-  eyebrow,
-  title
-}: {
-  eyebrow: string;
-  title: string;
-}) {
+function ContentCard({ item }: { item: ContentBlock }) {
   return (
-    <div className="mb-5 flex items-end justify-between gap-6">
-      <div>
-        <p className="text-xs font-medium uppercase tracking-[0.22em] text-white/34">
-          {eyebrow}
-        </p>
-        <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-white sm:text-3xl">
-          {title}
-        </h2>
-      </div>
-    </div>
+    <article className="relative min-h-[220px] overflow-hidden rounded-[28px] border border-white/[0.12] bg-white/[0.055] p-6 shadow-soft backdrop-blur-2xl">
+      <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+      <h3 className="text-2xl font-semibold leading-tight tracking-[-0.03em] text-white">
+        {item.title}
+      </h3>
+      <p className="mt-6 text-sm leading-7 text-white/58">{item.description}</p>
+      {item.tags ? (
+        <div className="mt-7 flex flex-wrap gap-2">
+          {item.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] font-medium text-white/48"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      ) : null}
+    </article>
+  );
+}
+
+function ValueCard({ item }: { item: ContentBlock }) {
+  return (
+    <article className="rounded-[26px] border border-white/[0.1] bg-white/[0.045] p-6 backdrop-blur-2xl">
+      <h3 className="text-3xl font-semibold tracking-[-0.05em] text-white">
+        {item.title}
+      </h3>
+      <p className="mt-5 text-sm leading-7 text-white/56">{item.description}</p>
+    </article>
   );
 }
 
@@ -135,7 +186,7 @@ export default function Home() {
                 </span>
               ))}
             </h1>
-            <p className="mt-7 max-w-2xl text-[17px] leading-8 text-white/62 sm:mt-8 sm:text-xl sm:leading-9">
+            <p className="mt-7 max-w-3xl text-[17px] leading-8 text-white/62 sm:mt-8 sm:text-xl sm:leading-9">
               {site.intro}
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -153,6 +204,11 @@ export default function Home() {
                 {site.secondaryAction.label}
                 <ArrowIcon />
               </a>
+            </div>
+            <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
+              {site.proof.map((item) => (
+                <ProofPointView key={item.value} item={item} />
+              ))}
             </div>
           </div>
 
@@ -180,10 +236,10 @@ export default function Home() {
                       <p className="text-2xl font-semibold tracking-[-0.03em]">
                         {site.name}
                       </p>
-                      <p className="mt-2 max-w-xs text-sm leading-6 text-white/48">
+                      <p className="mt-2 max-w-xs text-sm leading-6 text-white/52">
                         {site.role}
                       </p>
-                      <p className="mt-1 max-w-xs text-sm leading-6 text-white/48">
+                      <p className="mt-1 max-w-xs text-sm leading-6 text-white/46">
                         {site.secondaryRole}
                       </p>
                     </div>
@@ -231,9 +287,36 @@ export default function Home() {
                 {site.audience}
               </p>
               <p className="mt-5 text-sm leading-7 text-white/54">
-                聚焦学校招聘与课程合作场景，突出可讲、可教、可落地的 AI+理科教学能力。
+                面向双语理科教师、AI+教育专项人才与 STEM 课程研发岗位，突出可讲、可研、可沟通、可落地的综合能力。
               </p>
             </article>
+          </div>
+        </section>
+
+        <section className="pb-10 pt-2">
+          <SectionTitle eyebrow="Teaching Philosophy" title="教学理念" />
+          <div className="grid gap-4 md:grid-cols-3">
+            {site.teachingPhilosophy.map((item) => (
+              <ContentCard key={item.title} item={item} />
+            ))}
+          </div>
+        </section>
+
+        <section className="pb-10 pt-2">
+          <SectionTitle eyebrow="Signature Lessons" title="代表性课堂主题" />
+          <div className="grid gap-4 md:grid-cols-3">
+            {site.signatureLessons.map((item) => (
+              <ContentCard key={item.title} item={item} />
+            ))}
+          </div>
+        </section>
+
+        <section className="pb-10 pt-2">
+          <SectionTitle eyebrow="Why Schools" title="学校为什么需要我" />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {site.schoolValue.map((item) => (
+              <ValueCard key={item.title} item={item} />
+            ))}
           </div>
         </section>
 
@@ -277,7 +360,7 @@ export default function Home() {
           <div className="rounded-[30px] border border-white/[0.12] bg-white/[0.055] p-6 backdrop-blur-2xl sm:p-8">
             <SectionTitle eyebrow="Contact" title="合作 / 招聘联系" />
             <p className="max-w-md text-sm leading-7 text-white/58">
-              面向学校招聘、双语理科教学、AI+课程共创与 STEM 课程研发合作。
+              面向学校招聘、双语理科教学、AI+课程共创与 STEM 课程研发合作。希望把 AI 编程带进中学理科课堂，欢迎联系。
             </p>
             <a
               href={site.secondaryAction.href}
