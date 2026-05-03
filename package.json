@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
+    "build:cn": "node scripts/build-cn.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
     "start": "next start",
     "lint": "next lint"
