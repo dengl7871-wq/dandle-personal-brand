@@ -1,9 +1,19 @@
+const isStaticExport = process.env.STATIC_EXPORT === "true";
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const githubPagesBasePath = "/dandle-personal-brand";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  ...(process.env.STATIC_EXPORT === "true"
+  ...(isStaticExport
     ? {
         output: "export",
         trailingSlash: true
+      }
+    : {}),
+  ...(isGitHubPages
+    ? {
+        basePath: githubPagesBasePath,
+        assetPrefix: `${githubPagesBasePath}/`
       }
     : {}),
   typescript: {
